@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details</title>
+  </head>
+  <body>
+    <h1>Details about the author ID#{{ one_author.id }}</h1>
+    {{ one_author.first_name }}
+    <h2>Books Published</h2>
+    {% for you in one_author.books.all %} {{you.title}} <br />
+    {{you.desc}} {% endfor %}
+
+    <!-- <form action="process" method="POST">
+      {% csrf_token %}
+      <label>Select book to add:</label>
+      <select>
+        <option>Option 1</option>
+        <option>Option 2</option>
+      </select> -->
+      
+      
+       <form action="/process" method="POST">
+      {% csrf_token %}
+      <label>Select book to add to author:</label>
+      <input type="hidden" name="author_from_form" value="{{ one_author.id }}">
+      <select name="book_selected">
+        {% for one_book in all_the_books %}
+        <option value="{{ one_book.id }}">{{one_book.title}}</option>
+        {% endfor %}
+      </select>
+      <button type="submit">Add</button>
+    
+  </form> 
+    </form>
+  </body>
+</html>

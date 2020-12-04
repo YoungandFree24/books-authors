@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>author</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    
+    <style>
+      table,
+      tr,
+      th,
+      td {
+        border: 1px solid black;
+        padding: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- {{all_the_authors}}
+
+    {% for author in all_the_authors %}
+      <p>{{author.first_name}} has this many books</p>
+      <ul>
+        {% for book in author.books.all %}
+        <p>{{book.title}} </p>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+<p>-----------------------------------</p>
+     -->
+    <!-- {{all_the_books}}
+    {% for one_book in all_the_books %}
+    <p>{{one_book.title}}</p>
+    {% endfor %} -->
+    <div id="tables_right">
+      
+      <!-- use later for drop down menu -->
+      <!-- <form action="/process" method="POST">
+      {% csrf_token %}
+      <label>Select book to add to alpha author:</label>
+      <input type="hidden" name="author_from_form" value="authors.id">
+      <select name="book_selected">
+        {% for one_book in all_the_books %}
+        <option value="{{ one_book.id }}">{{one_book.title}}</option>
+        {% endfor %}
+      </select>
+      <button type="submit">GO</button>
+    
+  </form> -->
+
+      <div id="Right">
+        <h1>Add an Author</h1>
+        <form action="/creating_author" method="POST">
+          {% csrf_token %}
+          <label for="all_the_authors.first_name">First Name</label>
+          <br />
+          <input
+            type="text"
+            id="all_the_authors.first_name"
+            name="first_name"
+          /><br />
+
+          <label for="all_the_authors.last_name.">Last Name</label>
+          <br />
+          <input
+            type="text"
+            id="all_the_authors.last_name"
+            name="last_name"
+          /><br />
+
+          <label for="all_the_authors.notes.">Notes</label>
+          <br />
+          <input type="text" id="all_the_authors.notes" name="notes" /><br />
+          <button type="submit">Add</button>
+        </form>
+        <br />
+      </div>
+
+      <div id="tables">
+        
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Authors in Database</th> 
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for one_author in all_the_authors%}
+            <tr> 
+              <td>{{one_author.id}}</td><td>{{one_author.first_name}}</td>
+              <td><a href="/details/{{ one_author.id }}">View</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    <!-- </div> tables_right ends -->
+
+    
+  </body>
+
+
+</html>

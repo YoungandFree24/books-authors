@@ -1,0 +1,18 @@
+body{
+    background-color:green;
+    
+}
+
+#tables_right{
+    display: flex; 
+    justify-content:space-between;
+    padding: 100px;
+}
+
+#tables_left{
+    display: flex;
+    justify-content: space-between;
+    padding: 100px;
+}
+
+

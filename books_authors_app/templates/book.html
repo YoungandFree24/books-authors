@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>book</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- <script src="{% static 'js/script.js' %}"></script> -->
+    <!-- Documentation on django managing static files -->
+    <!-- https://docs.djangoproject.com/en/2.2/howto/static-files/ -->
+    <style>
+      table,
+      tr,
+      th,
+      td {
+        border: 1px solid black;
+        padding: 5px;
+      }
+    </style>
+  </head>
+    <body>
+      <!-- {{all_the_books}}
+
+    {% for whatever in all_the_books %}
+    <p>{{whatever}}</p>
+    {% endfor %}
+
+    {% for whatever in all_the_books %}
+    <p>{{whatever.title}} | {{whatever.desc}}</p>
+    {% endfor %}
+
+    {{all_the_authors}} -->
+
+    <!-- <form action="process" method="POST">
+      {% csrf_token %}
+        <label>Select book to add:</label>
+        <select name="book_selected">
+          {% for }
+          <option> Option 1</option>
+          <option> Option 2</option>
+        </select>
+        <button type="submit">GO</button>
+      
+    </form> -->
+    
+      <div id="tables_left">
+        <div id="left">
+            <h1>Add an Book</h1>
+            <form action="/circle" method="POST">
+                {% csrf_token %}
+                <label for="all_the_books.title">Title</label>
+                <br>
+                <input
+                  type="text"
+                  id="all_the_books.title"
+                  name="title"
+                  
+                /><br />
+      
+                <label for="all_the_books.">Description</label>
+                <br>
+                <input
+                  type="text"
+                  id="all_the_books.desc"
+                  name="desc"
+                  
+                /><br />
+                <button type="submit">Add</button>
+              </form>
+              <br />
+            </div>    
+        
+        
+        
+      
+      <div id="tables">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Books in Database</th> 
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for one_book in all_the_books %}
+            <tr> 
+              <td>{{one_book.id}}</td>
+              <td>{{one_book.title}}</td><td>View</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+      </body>
+    </body>
+</html>
